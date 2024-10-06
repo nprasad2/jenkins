@@ -1,17 +1,8 @@
-<<<<<<< HEAD
-pipeline{
-    agent any
-    }
-    stages{
-        stage("A"){
-            steps{
-=======
 pipeline {
     agent any
     stages {
         stage("A") {
             steps {
->>>>>>> f38ac3e (pipeline)
                 echo "========executing A========"
             }
             post {

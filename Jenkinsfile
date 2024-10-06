@@ -1,32 +1,40 @@
+<<<<<<< HEAD
 pipeline{
     agent any
     }
     stages{
         stage("A"){
             steps{
+=======
+pipeline {
+    agent any
+    stages {
+        stage("A") {
+            steps {
+>>>>>>> f38ac3e (pipeline)
                 echo "========executing A========"
             }
-            post{
-                always{
+            post {
+                always {
                     echo "========always========"
                 }
-                success{
+                success {
                     echo "========A executed successfully========"
                 }
-                failure{
+                failure {
                     echo "========A execution failed========"
                 }
             }
         }
     }
-    post{
-        always{
+    post {
+        always {
             echo "========always========"
         }
-        success{
-            echo "========pipeline executed successfully ========"
+        success {
+            echo "========pipeline executed successfully========"
         }
-        failure{
+        failure {
             echo "========pipeline execution failed========"
         }
     }

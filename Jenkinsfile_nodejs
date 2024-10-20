@@ -5,6 +5,26 @@ pipeline{
             steps{
                 sh 'ls -ltr'
             }
+            
         }
+        stage('build'){
+            steps{
+                sh """
+                npm install
+            }
+
+        }
+    }
+      post {
+        always{
+            echo"I will always say Hello again"
+        }
+        success {
+        echo 'I will run when pipeline is success'
+        }
+        failure {
+            echo "i will run this pipline is failuure"
+        }
+
     }
 }

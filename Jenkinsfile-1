@@ -13,7 +13,7 @@ pipeline {
         }
         stage('plan'){
             steps{
-                sh "This is Test run"
+                sh 'echo This is Test run'
             }
 
         }

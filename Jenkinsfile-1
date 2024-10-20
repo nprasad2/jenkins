@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    option{
+        ansiColor('xterm')
+
+    }
     stages {
         stage('Init'){
             steps {

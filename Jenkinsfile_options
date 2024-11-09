@@ -10,5 +10,10 @@ pipeline{
               checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/nprasad2/python231']])
             }
         }
+        stage('list fiels'){
+            steps{
+                sh 'ls -l'
+            }
+        }
     }
 }

@@ -10,13 +10,13 @@ pipeline{
               checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/nprasad2/addressbook.git']])
             }
         }
-        stage('list fiels'){
+        stage('list fils'){
             steps{
                 sh 'ls -l'
             }
         }
-        stage{
-            steps('build'){
+        stage('build'){
+            steps{
                 sh 'maven compile'
             }
         }

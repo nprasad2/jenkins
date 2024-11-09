@@ -9,6 +9,11 @@ pipeline{
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/nprasad2/addressbook.git']])
             }
         }
+        stage('list files'){
+            steps{
+                sh 'ls -l'
+            }
+        }
         stage('Build project'){
             steps{
                 sh 'mvn compile'

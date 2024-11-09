@@ -11,7 +11,7 @@ pipeline{
         }
         stage('list files'){
             steps{
-                sh 'cd Project'
+                sh 'pwd'
                 sh 'ls -l'
             }
         }

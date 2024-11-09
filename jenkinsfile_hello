@@ -1,0 +1,10 @@
+pipeline {
+    agent any
+    stages{
+        stage('I am back'){
+            steps{
+                echo "Hello Jenkins i m back"
+            }
+        }
+    }
+}

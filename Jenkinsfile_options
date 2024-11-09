@@ -15,5 +15,10 @@ pipeline{
                 sh 'ls -l'
             }
         }
+        stage{
+            steps('build'){
+                sh 'maven compile'
+            }
+        }
     }
 }

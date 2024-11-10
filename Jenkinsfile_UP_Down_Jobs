@@ -8,7 +8,7 @@ pipeline{
         }
         stage('Downstream job'){
             steps{
-                build job: 'Jenkinsfile_options'
+                build job: 'test_5'
             }
 
         }

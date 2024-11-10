@@ -1,28 +1,27 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('upstream'){
-            steps{
-                echo "This is Upstream job"
+    stages {
+        stage('Upstream Job') {
+            steps {
+                echo "This is the Upstream job"
             }
         }
-        stage('Downstream job'){
-            steps{
-                build job: 'python_proj'
+        stage('Downstream Job') {
+            steps {
+                build job: 'python_proj'  // Triggering the downstream job
             }
-
         }
-        post {
-           always {
-    // One or more steps need to be included within each condition's block.
-             }
-            success {
-            // One or more steps need to be included within each condition's block.
-                }
-              failure {
-            // One or more steps need to be included within each condition's block.
+    }
+    post {
+        always {
+            echo "This will run regardless of success or failure"
         }
-}
-
+        success {
+            echo "Pipeline completed successfully"
+        }
+        failure {
+            echo "Pipeline failed"
+        }
     }
 }
+

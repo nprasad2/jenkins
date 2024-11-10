@@ -10,9 +10,11 @@ pipeline {
             }
         }
         stage('script usage'){
-            def age = 35
-            def results = age * 2
-            echo "Hello my age is ${results}"
+            script{
+                def age = 35
+                def results = age * 2
+                echo "Hello my age is ${results}"
+            }
         }
     }
 }

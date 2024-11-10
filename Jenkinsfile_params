@@ -9,6 +9,7 @@ pipeline{
         stage('list choices'){
             steps{
             sh 'echo $params.ENVIRONMENT'
+            sh 'echo %params.BRANCH'
             }
         }
     }

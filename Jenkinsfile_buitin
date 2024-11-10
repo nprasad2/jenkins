@@ -5,6 +5,8 @@ pipeline {
             steps{
                 echo "Job number : $env.BUILD_NUMBER"
                 echo "Job name: $env.JOB_NAME"
+                echo "Workspace: ${env.WORKSPACE}"
+                echo "Git commit hash: ${env.GIT_COMMIT}"
             }
         }
     }

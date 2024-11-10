@@ -1,0 +1,16 @@
+pipeline{
+    agent any
+    stages{
+        stage('upstream'){
+            steps{
+                echo "This is Upstream job"
+            }
+        }
+        stage('Downstream job'){
+            steps{
+                build job: 'Jenkinsfile_options'
+            }
+
+        }
+    }
+}

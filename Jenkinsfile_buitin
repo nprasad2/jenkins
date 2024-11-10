@@ -9,5 +9,10 @@ pipeline {
                 echo "Git commit hash: ${env.GIT_COMMIT}"
             }
         }
+        stage('script usage'){
+            def age = 35
+            def results = age * 2
+            echo "Hello my age is ${results}"
+        }
     }
 }

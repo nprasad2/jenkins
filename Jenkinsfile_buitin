@@ -1,19 +1,21 @@
 pipeline {
     agent any
-    stages{
-        stage('built in variables'){
-            steps{
-                echo "Job number : $env.BUILD_NUMBER"
-                echo "Job name: $env.JOB_NAME"
+    stages {
+        stage('Built-in Variables') {
+            steps {
+                echo "Job number: ${env.BUILD_NUMBER}"
+                echo "Job name: ${env.JOB_NAME}"
                 echo "Workspace: ${env.WORKSPACE}"
                 echo "Git commit hash: ${env.GIT_COMMIT}"
             }
         }
-        stage('script usage'){
-            script{
-                def age = 35
-                def results = age * 2
-                echo "Hello my age is ${results}"
+        stage('Script Usage') {
+            steps {
+                script {
+                    def age = 35
+                    def results = age * 2
+                    echo "Hello, my age is ${results}"
+                }
             }
         }
     }

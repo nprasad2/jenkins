@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+    environment {
+        PATH = "${PATH}:/usr/local/bin"
+        dockerhub_cred = credentials('docker cred')
+    }
+    tools {
+        maven 'Maven'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/nprasad2/addressbook.git']])
+            }
+        }
+        stage("Maven Build") {
+            steps {
+                sh 'mvn package'
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t nprasad12chow/project-docker:1.0 .'
+            }
+        }
+        stage('List Docker Images') {
+            steps {
+                sh 'docker images'
+            }
+        }
+        stage('docker push'){
+            steps{
+                sh 'echo $dockerhub_cred | docker login -u $dockerhub_cred_USR --password-stdin'
+                sh 'docker push nprasad12chow/project-docker:1.0'
+            }
+        }
+    }
+}

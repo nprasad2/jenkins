@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    environment {
+        PATH = "${PATH}:/usr/local/bin"
+    }
+    stages {
+        stage('checkout stage') {
+            steps {
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/nprasad2/addressbook.git']])
+            }
+        }
+        stage("maven build"){
+            steps{
+                sh 'mvn package'
+            }
+        }
+        stage('dcoker build'){
+            steps{
+                sh 'docker build -t adressbook_new'
+            }
+        }
+        stage('list images'){
+            steps{
+                sh 'docker images'
+
+            }
+        }
+    }
+}

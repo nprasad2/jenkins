@@ -3,29 +3,28 @@ pipeline {
     environment {
         PATH = "${PATH}:/usr/local/bin"
     }
-    tools{
+    tools {
         maven 'Maven'
     }
     stages {
-        stage('checkout stage') {
+        stage('Checkout') {
             steps {
                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/nprasad2/addressbook.git']])
             }
         }
-        stage("maven build"){
-            steps{
+        stage("Maven Build") {
+            steps {
                 sh 'mvn package'
             }
         }
-        stage('dcoker build'){
-            steps{
-                sh 'docker build -t adressbook_new'
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t addressbook_new .'
             }
         }
-        stage('list images'){
-            steps{
+        stage('List Docker Images') {
+            steps {
                 sh 'docker images'
-
             }
         }
     }

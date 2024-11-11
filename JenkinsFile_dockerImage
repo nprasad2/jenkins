@@ -3,6 +3,9 @@ pipeline {
     environment {
         PATH = "${PATH}:/usr/local/bin"
     }
+    tools{
+        maven 'Maven'
+    }
     stages {
         stage('checkout stage') {
             steps {
